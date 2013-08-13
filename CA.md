@@ -1,4 +1,4 @@
-GetCertified Contributor Agreement
+# GetCertified Contributor Agreement
 
 These terms apply to your contribution of materials to GetCertified ("us"/"our"), and set out the intellectual property rights you grant to us in the contributed materials.  If this contribution is on behalf of a company, the term "you" will also mean the company you identify below. If you agree to be bound by these terms, fill in the information requested below and provide your signature. 
 
