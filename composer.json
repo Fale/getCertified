@@ -1,10 +1,21 @@
 {
-	"name": "laravel/laravel",
-	"description": "The Laravel Framework.",
-	"keywords": ["framework", "laravel"],
+	"name": "getcertified/getcertified",
+	"description": "The GetCertfied.It website.",
+	"keywords": ["website", "laravel"],
 	"require": {
 		"laravel/framework": "4.0.*"
 	},
+	"type": "project",
+	"homepage":"http://getcertfied.it",
+	"license":"GPL-3.0+",
+	"authors": [
+        {
+            "name": "Fabio Alessandro Locati",
+            "email": "fabiolocati@gmail.com",
+            "homepage": "http://www.fabiolocati.net",
+            "role": "Developer"
+        }
+    ],
 	"autoload": {
 		"classmap": [
 			"app/commands",
