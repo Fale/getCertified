@@ -17,6 +17,7 @@ class CreateCertificationsTable extends Migration {
 		    $table->string('name');
 		    $table->string('identifier');
 		    $table->integer('provider')->unsigned();
+		    $table->text('description');
 		});
 	}
 
