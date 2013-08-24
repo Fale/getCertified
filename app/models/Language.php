@@ -6,5 +6,10 @@ class Language extends Eloquent {
     {
         return $this->belongsToMany('Certification');
     }
+
+    public function exams()
+    {
+        return $this->belongsToMany('Exam');
+    }
 	
 }

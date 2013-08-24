@@ -11,4 +11,10 @@ class Exam extends Eloquent {
     {
         return $this->belongsToMany('Certification');
     }
+
+    public function languages()
+    {
+        return $this->belongsToMany('Language');
+    }
+
 }

@@ -8,5 +8,5 @@ $data = array(
 	'level' => "",
 	'requirements' => array(),
 	'certification_requirements' => array(),
-	'languages' => array("English"),
+	'languages' => array("en"),
 );

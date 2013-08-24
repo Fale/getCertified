@@ -23,6 +23,8 @@ class DatabaseSeeder extends Seeder {
         $this->command->info('Certification-Exam table seeded!');
         $this->call('CertificationLanguageTableSeeder');
         $this->command->info('Certification-Language table seeded!');
+        $this->call('ExamLanguageTableSeeder');
+        $this->command->info('Exam-Language table seeded!');
     }
 
 }
