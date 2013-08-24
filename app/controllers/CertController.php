@@ -18,13 +18,30 @@ class CertController extends BaseController {
 		return TextController::stringToHtml($page);
 	}
 
-	public function showCertification($p, $c)
+	public function showCertification($provider, $certification)
 	{
-		return TextController::fileToHtml( base_path() . "/data/" . $p . "/" . $c . ".md");
+		$p = Provider::where('slug', $provider)->firstOrFail();
+		$c = Certification::where('slug', $certification)->where('provider_id', $p->id)->firstOrFail();
+		$page = "#" . $c->name . "#\n";
+		$page.= $c->description . "\n";
+		$page.= "## Exams list ##\n";
+		foreach ($c->exams as $exam) {
+			$page.= "* [" . $exam->name . "](/" . $p->slug . "/e/" . $exam->slug . ")\n";
+		}
+		return TextController::stringToHtml($page);
 	}
 
-	public function getCertificationList($provider)
+	public function showExam($provider, $exam)
 	{
-		
+		$p = Provider::where('slug', $provider)->firstOrFail();
+		$e = Exam::where('slug', $exam)->where('provider_id', $p->id)->firstOrFail();
+		$page = "#" . $e->name . "#\n";
+		$page.= $e->description . "\n";
+		$page.= "## Certification list ##\n";
+		foreach ($e->certifications as $certification) {
+			$page.= "* [" . $certification->name . "](/" . $p->slug . "/c/" . $certification->slug . ")\n";
+		}
+		return TextController::stringToHtml($page);
 	}
+
 }

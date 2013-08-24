@@ -1,8 +1,7 @@
 <?php
 
 $data = array(
-	'id' => "220-802",
-	'type' => "exam",
+	'slug' => "220-802",
 	'name' => "CompTIA A+ 220-802",
 	'provider' => "comptia",
 	'level' => "",

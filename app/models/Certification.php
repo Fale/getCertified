@@ -6,4 +6,10 @@ class Certification extends Eloquent {
     {
         return $this->belongsTo('Provider');
     }
+
+    public function exams()
+    {
+        return $this->belongsToMany('Exam');
+    }
+
 }
