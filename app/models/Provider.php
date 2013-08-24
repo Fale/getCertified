@@ -6,4 +6,9 @@ class Provider extends Eloquent {
     {
         return $this->hasMany('Certification');
     }
+
+	public function exams()
+    {
+        return $this->hasMany('Exam');
+    }
 }

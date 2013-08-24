@@ -9,7 +9,11 @@ class CertController extends BaseController {
 		$page.= $p->description . "\n";
 		$page.= "## Certification list ##\n";
 		foreach ($p->certifications as $certification) {
-			$page.= "* [" . $certification->name . "](" . $p->slug . "/" . $certification->slug . ")\n";
+			$page.= "* [" . $certification->name . "](" . $p->slug . "/c/" . $certification->slug . ")\n";
+		}
+		$page.= "## Exams list ##\n";
+		foreach ($p->exams as $exam) {
+			$page.= "* [" . $exam->name . "](" . $p->slug . "/e/" . $exam->slug . ")\n";
 		}
 		return TextController::stringToHtml($page);
 	}
