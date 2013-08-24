@@ -28,6 +28,10 @@ class CertController extends BaseController {
 		foreach ($c->exams as $exam) {
 			$page.= "* [" . $exam->name . "](/" . $p->slug . "/e/" . $exam->slug . ")\n";
 		}
+		$page.= "## Languages ##\n";
+		foreach ($c->languages as $language) {
+			$page.= "* " . $language->name . "\n";
+		}
 		return TextController::stringToHtml($page);
 	}
 

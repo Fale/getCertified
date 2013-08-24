@@ -12,4 +12,9 @@ class Certification extends Eloquent {
         return $this->belongsToMany('Exam');
     }
 
+    public function languages()
+    {
+        return $this->belongsToMany('Language');
+    }
+
 }

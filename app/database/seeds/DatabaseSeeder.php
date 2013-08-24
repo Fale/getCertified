@@ -2,14 +2,14 @@
 
 class DatabaseSeeder extends Seeder {
 
-	/**
-	 * Run the database seeds.
-	 *
-	 * @return void
-	 */
-	public function run()
-	{
-		Eloquent::unguard();
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        Eloquent::unguard();
 
         $this->call('LanguageTableSeeder');
         $this->command->info('Languages table seeded!');
@@ -21,6 +21,8 @@ class DatabaseSeeder extends Seeder {
         $this->command->info('Exams table seeded!');
         $this->call('CertificationExamTableSeeder');
         $this->command->info('Certification-Exam table seeded!');
-	}
+        $this->call('CertificationLanguageTableSeeder');
+        $this->command->info('Certification-Language table seeded!');
+    }
 
 }
