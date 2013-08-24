@@ -15,9 +15,10 @@ class CreateExamsTable extends Migration {
 		{
 		    $table->increments('id');
 		    $table->string('name');
-		    $table->string('identifier');
+		    $table->string('slug');
 		    $table->integer('provider')->unsigned();
 		    $table->text('description');
+		    $table->date('last_version');
 		});
 	}
 

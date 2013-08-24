@@ -12,7 +12,13 @@ class DatabaseSeeder extends Seeder {
 		Eloquent::unguard();
 
         $this->call('LanguageTableSeeder');
-        $this->command->info('Language table seeded!');
+        $this->command->info('Languages table seeded!');
+        $this->call('ProviderTableSeeder');
+        $this->command->info('Providers table seeded!');
+        $this->call('CertificationTableSeeder');
+        $this->command->info('Certifications table seeded!');
+        $this->call('ExamTableSeeder');
+        $this->command->info('Exams table seeded!');
 	}
 
 }
