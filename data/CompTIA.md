@@ -1,5 +1,7 @@
-== History ==
+# CompTIA #
+
+## History ##
 Dunno
 
-== Certs ==
+## Certs ##
 A lot

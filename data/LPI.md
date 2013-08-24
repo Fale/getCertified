@@ -1,2 +1,4 @@
-== Name ==
-Linux Professional Institute
+# Linux Professional Institute #
+
+## History ##
+Bunch of Linux guys
