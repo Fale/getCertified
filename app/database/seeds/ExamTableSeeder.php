@@ -36,7 +36,7 @@ class ExamTableSeeder extends Seeder {
 		else
 			$result['description'] = '';
 		if (array_key_exists('provider', $data))
-			$result['provider'] = $data['provider'];
+			$result['provider_id'] = DB::table('providers')->where('slug', $data['provider'])->pluck('id');
 		else
 			$result['provider'] = '';
 		if (array_key_exists('last_version', $data))

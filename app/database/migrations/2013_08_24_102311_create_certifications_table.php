@@ -16,11 +16,13 @@ class CreateCertificationsTable extends Migration {
 		    $table->increments('id');
 		    $table->string('name');
 		    $table->string('slug');
-		    $table->integer('provider')->unsigned();
+		    $table->integer('provider_id')->unsigned();
 		    $table->text('description');
 		    $table->string('level');
 		    $table->date('last_version');
 		    $table->date('validity');
+
+		    $table->foreign('provider_id')->references('id')->on('providers');
 		});
 	}
 
