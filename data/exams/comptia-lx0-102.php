@@ -1,8 +1,8 @@
 <?php
 
 $data = array(
-	'slug' => "220-801",
-	'name' => "CompTIA A+ 220-801",
+	'slug' => "LX0-102",
+	'name' => "LX0-102",
 	'provider' => "comptia",
 	'level' => "",
 	'requirements' => array(),

@@ -1,17 +1,16 @@
 <?php
 
 $data = array(
-	'slug' => "A",
-	'type' => "certification",
-	'name' => "A+",
+	'slug' => "linux",
+	'name' => "Linux+",
 	'provider' => "comptia",
 	'level' => "",
 	'requirements' => array(),
 	'certification_requirements' => array(),
-	'exams' => array("220-801", "220-802"),
+	'exams' => array("LX0-101", "LX0-102"),
 	'languages' => array("en"),
-	'last_version' => '2011',
-	'validity' => '3 years',
+	'last_version' => '2009',
+	'validity' => '',
 	'description' => '',
 	'kind' => array('multiplechoices', 'performance')
 );
