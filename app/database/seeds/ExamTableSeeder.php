@@ -43,9 +43,7 @@ class ExamTableSeeder extends Seeder {
 			$result['last_version'] = $data['last_version'];
 		else
 			$result['last_version'] = '';
-/*	'certification_requirements' => array(),
-	'languages' => array("English"),
-*/
+/*	'certification_requirements' => array(),*/
 		return $result;
 	}
 

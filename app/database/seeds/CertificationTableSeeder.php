@@ -53,8 +53,6 @@ class CertificationTableSeeder extends Seeder {
 			$result['validity'] = '';
 /*	'requirements' => array(),
 	'certification_requirements' => array(),
-	'exams' => array("220-801", "220-802"),
-	'languages' => array("English"),
 	'kind' => array('multiplechoices', 'performance')
 */
 		return $result;
