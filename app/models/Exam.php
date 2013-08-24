@@ -1,6 +1,6 @@
 <?php
 
-class Certification extends Eloquent {
+class Exam extends Eloquent {
 
     public function provider()
     {
