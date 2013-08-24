@@ -7,4 +7,10 @@ class CertController extends BaseController {
 		return $name;
 	}
 
+	private function stringToHtml($string)
+	{
+		$html = Markdown::defaultTransform($string);
+		return SmartyPants::defaultTransform($html);
+	}
+
 }
