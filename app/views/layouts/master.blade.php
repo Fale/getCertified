@@ -37,6 +37,9 @@
 	      	<div class="jumbotron">
 	        	@yield('content')
 	      	</div>
+  			<div class="footer">
+    			&copy; 2013 - Fabio Alessandro Locati
+	    	</div>
 	    </div> <!-- /container -->
     	<script src="//code.jquery.com/jquery.js"></script>
 		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>

@@ -1,7 +1,12 @@
 body {
-padding: 30px;
+	padding: 30px;
 }
 
 .navbar {
-margin-bottom: 30px;
+	margin-bottom: 30px;
+}
+
+.footer {
+	color: #777;
+	text-align: center;
 }
