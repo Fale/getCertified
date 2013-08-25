@@ -18,17 +18,17 @@
 		            	<span class="icon-bar"></span>
 		            	<span class="icon-bar"></span>
 		          	</button>
-		          	<a class="navbar-brand" href="#">Get Certified</a>
+		          	<a class="navbar-brand" href="{{URL::route('home')}}">Get Certified</a>
 		        </div>
 		        <div class="navbar-collapse collapse">
 		          	<ul class="nav navbar-nav">
-		            	<li class="active"><a href="#">Providers</a></li>
-		            	<li><a href="#">Certifications</a></li>
-		            	<li><a href="#">Exams</a></li>
+		            	<li {{ Request::is('providers') ? ' class="active"' : '' }}><a href="{{URL::route('providers')}}">Providers</a></li>
+		            	<li {{ Request::is('certifications') ? ' class="active"' : '' }}><a href="{{URL::route('certifications')}}">Certifications</a></li>
+		            	<li {{ Request::is('exams') ? ' class="active"' : '' }}><a href="{{URL::route('exams')}}">Exams</a></li>
 		          	</ul>
 		          	<ul class="nav navbar-nav navbar-right">
-		            	<li><a href="../navbar-static-top/">About</a></li>
-		            	<li><a href="../navbar-fixed-top/">Contacts</a></li>
+		            	<li {{ Request::is('about-us') ? ' class="active"' : '' }}><a href="{{URL::route('about-us')}}">About us</a></li>
+		            	<li {{ Request::is('contact-us') ? ' class="active"' : '' }}><a href="{{URL::route('contact-us')}}">Contact us</a></li>
 		          	</ul>
 		        </div><!--/.nav-collapse -->
 		    </div>
