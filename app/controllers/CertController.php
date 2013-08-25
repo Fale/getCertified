@@ -4,6 +4,12 @@ class CertController extends BaseController {
 
 	protected $layout = 'layouts.master';
 
+	public function showProviders()
+	{
+		$p = Provider::get();
+		$this->layout->content = View::make('providers', array('providers' => $p));
+	}
+
 	public function showProvider($provider)
 	{
 		$p = Provider::where('slug', $provider)->firstOrFail();
@@ -13,6 +19,12 @@ class CertController extends BaseController {
 		$data['slug'] = $p->slug;
 		$data['exams'] = $p->exams;
 		$this->layout->content = View::make('certifications.provider', $data);
+	}
+
+	public function showCertifications()
+	{
+		$c = Certification::get();
+		$this->layout->content = View::make('certifications', array('certifications' => $c));
 	}
 
 	public function showCertification($provider, $certification)
@@ -25,6 +37,12 @@ class CertController extends BaseController {
 		$data['exams'] = $c->exams;
 		$data['languages'] = $c->languages;
 		$this->layout->content = View::make('certifications.certification', $data);
+	}
+
+	public function showExams()
+	{
+		$e = Exam::get();
+		$this->layout->content = View::make('exams', array('exams' => $e));
 	}
 
 	public function showExam($provider, $exam)
