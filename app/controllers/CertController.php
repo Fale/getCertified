@@ -15,9 +15,9 @@ class CertController extends BaseController {
 		$p = Provider::where('slug', $provider)->firstOrFail();
 		$data['name'] = $p->name;
 		$data['description'] = TextController::stringToHtml($p->description);
-		$data['certifications'] = $p->certifications;
+		$data['certifications'] = $p->certifications->sortBy(function($e){return $e->name;});
 		$data['slug'] = $p->slug;
-		$data['exams'] = $p->exams;
+		$data['exams'] = $p->exams->sortBy(function($e){return $e->name;});
 		$this->layout->content = View::make('certifications.provider', $data);
 	}
 
@@ -52,7 +52,7 @@ class CertController extends BaseController {
 		$data['name'] = $e->name;
 		$data['description'] = TextController::stringToHtml($e->description);
 		$data['slug'] = $p->slug;
-		$data['certifications'] = $e->certifications;
+		$data['certifications'] = $e->certifications->sortBy(function($e){return $e->name;});
 		$data['languages'] = $e->languages;
 		$this->layout->content = View::make('certifications.exam', $data);
 	}
