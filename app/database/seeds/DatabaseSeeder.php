@@ -27,4 +27,21 @@ class DatabaseSeeder extends Seeder {
         $this->command->info('Exam-Language table seeded!');
     }
 
+    public static function scandir($dir)
+    {
+        $root = scandir($dir);
+        foreach($root as $value)
+        {
+            if ($value === '.' || $value === '..')
+                continue;
+            if (is_file("$dir/$value"))
+            {
+                $result[] = "$dir/$value";
+                continue;
+            }
+            foreach (DatabaseSeeder::scandir("$dir/$value") as $value)
+                $result[] = $value;
+        }
+        return $result;
+    }
 }

@@ -11,10 +11,10 @@ class CertificationTableSeeder extends Seeder {
 	private function getData()
 	{
 		$result = array();
-		$list = scandir(base_path() . "/data/certifications");
+		$list = DatabaseSeeder::scandir(base_path() . "/data/certifications");
 		foreach ($list as $element) {
 			if (preg_match("/.*\.php/", $element))
-				array_push($result, $this->importData(base_path() . "/data/certifications/" . $element));
+				array_push($result, $this->importData($element));
 		}
 		return $result;
 	}

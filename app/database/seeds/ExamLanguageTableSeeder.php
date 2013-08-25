@@ -11,10 +11,10 @@ class ExamLanguageTableSeeder extends Seeder {
 	private function getData()
 	{
 		$result = array();
-		$list = scandir(base_path() . "/data/exams");
+		$list = DatabaseSeeder::scandir(base_path() . "/data/exams");
 		foreach ($list as $element) {
 			if (preg_match("/.*\.php/", $element))
-				$result = array_merge($result, $this->importData(base_path() . "/data/exams/" . $element));
+				$result = array_merge($result, $this->importData($element));
 		}
 		return $result;
 	}

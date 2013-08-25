@@ -11,10 +11,10 @@ class ProviderTableSeeder extends Seeder {
 	private function getData()
 	{
 		$result = array();
-		$list = scandir(base_path() . "/data/providers");
+		$list = DatabaseSeeder::scandir(base_path() . "/data/providers");
 		foreach ($list as $element) {
 			if (preg_match("/.*\.php/", $element))
-				array_push($result, $this->importData(base_path() . "/data/providers/" . $element));
+				array_push($result, $this->importData($element));
 		}
 		return $result;
 	}
