@@ -2,20 +2,17 @@
 
 class CertController extends BaseController {
 
+	protected $layout = 'layouts.master';
+
 	public function showProvider($provider)
 	{
 		$p = Provider::where('slug', $provider)->firstOrFail();
-		$page = "#" . $p->name . "#\n";
-		$page.= $p->description . "\n";
-		$page.= "## Certification list ##\n";
-		foreach ($p->certifications as $certification) {
-			$page.= "* [" . $certification->name . "](" . $p->slug . "/c/" . $certification->slug . ")\n";
-		}
-		$page.= "## Exams list ##\n";
-		foreach ($p->exams as $exam) {
-			$page.= "* [" . $exam->name . "](" . $p->slug . "/e/" . $exam->slug . ")\n";
-		}
-		return TextController::stringToHtml($page);
+		$data['name'] = $p->name;
+		$data['description'] = TextController::stringToHtml($p->description);
+		$data['certifications'] = $p->certifications;
+		$data['slug'] = $p->slug;
+		$data['exams'] = $p->exams;
+		$this->layout->content = View::make('certifications.provider', $data);
 	}
 
 	public function showCertification($provider, $certification)
