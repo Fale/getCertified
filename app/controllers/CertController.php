@@ -19,34 +19,24 @@ class CertController extends BaseController {
 	{
 		$p = Provider::where('slug', $provider)->firstOrFail();
 		$c = Certification::where('slug', $certification)->where('provider_id', $p->id)->firstOrFail();
-		$page = "#" . $c->name . "#\n";
-		$page.= $c->description . "\n";
-		$page.= "## Exams list ##\n";
-		foreach ($c->exams as $exam) {
-			$page.= "* [" . $exam->name . "](/" . $p->slug . "/e/" . $exam->slug . ")\n";
-		}
-		$page.= "## Languages ##\n";
-		foreach ($c->languages as $language) {
-			$page.= "* " . $language->name . "\n";
-		}
-		return TextController::stringToHtml($page);
+		$data['name'] = $c->name;
+		$data['description'] = TextController::stringToHtml($c->description);
+		$data['slug'] = $p->slug;
+		$data['exams'] = $c->exams;
+		$data['languages'] = $c->languages;
+		$this->layout->content = View::make('certifications.certification', $data);
 	}
 
 	public function showExam($provider, $exam)
 	{
 		$p = Provider::where('slug', $provider)->firstOrFail();
 		$e = Exam::where('slug', $exam)->where('provider_id', $p->id)->firstOrFail();
-		$page = "#" . $e->name . "#\n";
-		$page.= $e->description . "\n";
-		$page.= "## Certification list ##\n";
-		foreach ($e->certifications as $certification) {
-			$page.= "* [" . $certification->name . "](/" . $p->slug . "/c/" . $certification->slug . ")\n";
-		}
-		$page.= "## Languages ##\n";
-		foreach ($e->languages as $language) {
-			$page.= "* " . $language->name . "\n";
-		}
-		return TextController::stringToHtml($page);
+		$data['name'] = $e->name;
+		$data['description'] = TextController::stringToHtml($e->description);
+		$data['slug'] = $p->slug;
+		$data['certifications'] = $e->certifications;
+		$data['languages'] = $e->languages;
+		$this->layout->content = View::make('certifications.exam', $data);
 	}
 
 }

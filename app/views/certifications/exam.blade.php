@@ -3,7 +3,7 @@
 @section('content')
 	<h1>{{$name}}</h1>
 	{{$description}}
-	
+
 	@if (count($certifications) > 0)
 	<h2>Certification list</h2>
 		<ul>
@@ -15,14 +15,15 @@
 		</ul>
 	@endif
 
-	@if (count($exams) > 0)
-	<h2>Exam list</h2>
+	@if (count($languages) > 0)
+	<h2>Language list</h2>
 		<ul>
 	@endif
-	@foreach ($exams as $e)
-		<li><a href="/{{$slug}}/e/{{$e->slug}}">{{$e->name}}</a></li>
+	@foreach ($languages as $l)
+		<li>{{$l->name}}</li>
 	@endforeach
-	@if (count($exams) > 0)
+	@if (count($languages) > 0)
 		</ul>
 	@endif
+
 @stop
