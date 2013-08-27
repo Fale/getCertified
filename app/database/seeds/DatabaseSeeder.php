@@ -25,6 +25,8 @@ class DatabaseSeeder extends Seeder {
         $this->command->info('Certification-Language table seeded!');
         $this->call('ExamLanguageTableSeeder');
         $this->command->info('Exam-Language table seeded!');
+        $this->call('CertificationCertificationRequirementTableSeeder');
+        $this->command->info('Certifications-Certification-Requirement table seeded!');
     }
 
     public static function scandir($dir)

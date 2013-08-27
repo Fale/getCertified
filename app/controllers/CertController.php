@@ -36,6 +36,7 @@ class CertController extends BaseController {
 		$data['slug'] = $p->slug;
 		$data['exams'] = $c->exams;
 		$data['languages'] = $c->languages;
+		$data['requiredCertifications'] = $c->requiredCertifications;
 		$this->layout->content = View::make('certifications.certification', $data);
 	}
 
