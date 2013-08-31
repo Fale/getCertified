@@ -3,9 +3,9 @@
 $data = array(
 	'slug' => "linux",
 	'name' => "Linux+",
-	'fullname' => "CompTIA Linux+",
+	'fullname' => "CompTIA Linux+ Powered by LPI",
 	'provider' => "comptia",
-	'level' => "",
+	'level' => '2',
 	'requirements' =>
 		[
 			[
@@ -20,6 +20,6 @@ $data = array(
 	'languages' => array("en"),
 	'last_version' => '2009',
 	'validity' => '',
-	'description' => '',
+	'description' => "CompTIA Linux+ Powered by LPI is a high-stakes, vendor-neutral certification that validates the fundamental knowledge and skills required of junior Linux administrators.",
 	'kind' => array('multiplechoices', 'performance')
 );

@@ -4,7 +4,7 @@ $data = array(
 	'slug' => "lpic-2",
 	'name' => "LPIC-2",
 	'provider' => "lpi",
-	'level' => "",
+	'level' => '2',
 	'requirements' =>
 		[
 			[

@@ -1,12 +1,13 @@
 <?php
 
 $data = array(
-	'slug' => "LX0-102",
-	'name' => "LX0-102",
-	'fullname' => "CompTIA LX0-102",
+	'slug' => "CV0-001",
+	'name' => "CV0-001",
+	'fullname' => "CompTIA Cloud+ CV0-001",
 	'provider' => "comptia",
 	'level' => '2',
 	'requirements' => array(),
+	'introduction' => '01-11-2013',
 	'certification_requirements' => array(),
 	'languages' => array("en"),
 );

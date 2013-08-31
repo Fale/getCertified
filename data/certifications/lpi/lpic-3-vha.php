@@ -4,7 +4,7 @@ $data = array(
 	'slug' => "lpic-3-vha",
 	'name' => "LPIC-3: Virtualization & High Availability",
 	'provider' => "lpi",
-	'level' => "",
+	'level' => '3',
 	'requirements' =>
 		[
 			[
