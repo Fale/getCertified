@@ -3,7 +3,7 @@
 @section('content')
 	<h1>{{$name}}</h1>
 	{{$description}}
-
+{{--
 	@if (count($exams) > 0)
 	<h2>Exam list</h2>
 		<ul>
@@ -35,5 +35,5 @@
 		<h2>Certifications requiring this one</h2>
     	{{$requiredByCertifications}}
 	@endif
-
+--}}
 @stop

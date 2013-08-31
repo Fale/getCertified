@@ -14,7 +14,7 @@ class CreateRequirementsTable extends Migration {
 		Schema::create('requirements', function($table)
 		{
 		    $table->integer('certification_id')->unsigned();
-		    $table->string('type');
+		    $table->string('requirement_type');
 		    $table->integer('requirement_id')->unsigned();
 		    $table->integer('group_id')->unsigned();
 		    $table->integer('policy');

@@ -16,5 +16,4 @@ class Exam extends Eloquent {
     {
         return $this->belongsToMany('Language');
     }
-
 }

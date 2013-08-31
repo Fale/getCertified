@@ -34,10 +34,11 @@ class CertController extends BaseController {
 		$data['name'] = $c->name;
 		$data['description'] = TextController::stringToHtml($c->description);
 		$data['slug'] = $p->slug;
-		$data['exams'] = $c->exams;
-		$data['languages'] = $c->languages;
-		$data['requiredCertifications'] = TextController::stringToHtml($this->dependencyToMd($c->id));
-		$data['requiredByCertifications'] = TextController::stringToHtml($this->requiredByToMd($c->id));
+		print_r($c->requires()->exams());
+		//$data['exams'] = $c->exams;
+		//$data['languages'] = $c->languages;
+		//$data['requiredCertifications'] = TextController::stringToHtml($this->dependencyToMd($c->id));
+		//$data['requiredByCertifications'] = TextController::stringToHtml($this->requiredByToMd($c->id));
 		$this->layout->content = View::make('certifications.certification', $data);
 	}
 

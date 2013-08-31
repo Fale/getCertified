@@ -44,7 +44,7 @@ class RequirementsTableSeeder extends Seeder {
 					         ->pluck('id');
 					$data = array(
 						'certification_id' => $certificationId,
-						'type' => 'Exam',
+						'requirement_type' => 'Exam',
 						'requirement_id' => $e,
 						'group_id' => $group,
 						'policy' => $policy
@@ -62,7 +62,7 @@ class RequirementsTableSeeder extends Seeder {
 					         ->pluck('id');
 					$data = array(
 						'certification_id' => $certificationId,
-						'type' => 'Certification',
+						'requirement_type' => 'Certification',
 						'requirement_id' => $r,
 						'group_id' => $group,
 						'policy' => $policy
