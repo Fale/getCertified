@@ -56,6 +56,8 @@ class CertController extends BaseController {
 		$data['slug'] = $p->slug;
 		$data['certifications'] = $e->certifications->sortBy(function($e){return $e->name;});
 		$data['languages'] = $e->languages;
+		$data['introduction'] = $e->introduction;
+		$data['retired'] = $e->retired;
 		$this->layout->content = View::make('certifications.exam', $data);
 	}
 

@@ -20,6 +20,8 @@ class CreateExamsTable extends Migration {
 		    $table->integer('provider_id')->unsigned();
 		    $table->text('description');
 		    $table->date('last_version');
+		    $table->date('introduction');
+		    $table->date('retired');
 
 		    $table->foreign('provider_id')->references('id')->on('providers');
 		});

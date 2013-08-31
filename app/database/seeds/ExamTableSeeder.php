@@ -49,6 +49,14 @@ class ExamTableSeeder extends Seeder {
 			$result['last_version'] = $data['last_version'];
 		else
 			$result['last_version'] = '';
+		if (array_key_exists('introduction', $data))
+			$result['introduction'] = $data['introduction'];
+		else
+			$result['introduction'] = '';
+		if (array_key_exists('retired', $data))
+			$result['retired'] = $data['retired'];
+		else
+			$result['retired'] = '';
 /*	'certification_requirements' => array(),*/
 		return $result;
 	}
