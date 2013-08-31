@@ -1,8 +1,8 @@
 <?php
 
 $data = array(
-	'slug' => "lpic-3",
-	'name' => "LPIC-3",
+	'slug' => "lpic-3-me",
+	'name' => "LPIC-3: Mixed Environment",
 	'provider' => "lpi",
 	'level' => "",
 	'requirements' =>
@@ -15,21 +15,18 @@ $data = array(
 				'policy' => 1,
 				[
 					'type' => 'exam',
-					'slug' => '301',
+					'slug' => '300',
 				],
-				[
-					'type' => 'certification',
-					'slug' => 'lpic-3-me',
+				[ #Old option (301 and 302)
+					[
+						'type' => 'exam',
+						'slug' => '301',
+					],
+					[
+						'type' => 'exam',
+						'slug' => '302',
+					],
 				],
-				[
-					'type' => 'certification',
-					'slug' => 'lpic-3-sec',
-				],
-				[
-					'type' => 'certification',
-					'slug' => 'lpic-3-vha',
-				],
-
 			],
 		],
 	'languages' => array("en"),

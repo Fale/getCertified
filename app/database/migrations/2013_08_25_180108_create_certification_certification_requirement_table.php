@@ -19,7 +19,7 @@ class CreateCertificationCertificationRequirementTable extends Migration {
 
 		    $table->foreign('certification_id')->references('id')->on('certifications');
 		    $table->foreign('required_id')->references('id')->on('certifications');
-		    $table->foreign('group_id')->references('id')->on('certification_group_requirement');
+		    $table->foreign('group_id')->references('id')->on('groups');
 		});
 	}
 

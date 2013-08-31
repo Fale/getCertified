@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCertificationGroupRequirementTable extends Migration {
+class CreateGroupsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -11,7 +11,7 @@ class CreateCertificationGroupRequirementTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('certification_group_requirement', function($table)
+		Schema::create('groups', function($table)
 		{
 		    $table->increments('id');
 		    $table->integer('policy');
@@ -25,7 +25,7 @@ class CreateCertificationGroupRequirementTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('certification_group_requirement');
+		Schema::dropIfExists('groups');
 	}
 
 }

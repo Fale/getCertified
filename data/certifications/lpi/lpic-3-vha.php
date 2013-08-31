@@ -1,23 +1,23 @@
 <?php
 
 $data = array(
-	'slug' => "lpic-1",
-	'name' => "LPIC-1",
+	'slug' => "lpic-3-vha",
+	'name' => "LPIC-3: Virtualization & High Availability",
 	'provider' => "lpi",
 	'level' => "",
 	'requirements' =>
 		[
 			[
-				'type' => 'exam',
-				'slug' => '101',
+				'type' => 'certification',
+				'slug' => 'lpic-2',
 			],
 			[
 				'type' => 'exam',
-				'slug' => '102',
+				'slug' => '304',
 			],
 		],
 	'languages' => array("en"),
-	'last_version' => '2009',
+	'last_version' => '2012',
 	'validity' => '',
 	'description' => '',
 	'kind' => array('multiplechoices', 'performance')

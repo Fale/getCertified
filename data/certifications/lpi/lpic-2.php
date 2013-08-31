@@ -5,9 +5,21 @@ $data = array(
 	'name' => "LPIC-2",
 	'provider' => "lpi",
 	'level' => "",
-	'requirements' => array(),
-	'certification_requirements' => array('lpic-1'),
-	'exams' => array("201", "202"),
+	'requirements' =>
+		[
+			[
+				'type' => 'certification',
+				'slug' => 'lpic-1',
+			],
+			[
+				'type' => 'exam',
+				'slug' => '201',
+			],
+			[
+				'type' => 'exam',
+				'slug' => '202',
+			],
+		],
 	'languages' => array("en"),
 	'last_version' => '2012',
 	'validity' => '',

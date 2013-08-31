@@ -5,18 +5,10 @@ class CertificationTableSeeder extends Seeder {
 	public function run()
 	{
 		DB::table('certifications')->delete();
-		DB::table('certifications')->insert($this->getData());
-	}
-
-	private function getData()
-	{
-		$result = array();
 		$list = DatabaseSeeder::scandir(base_path() . "/data/certifications");
-		foreach ($list as $element) {
+		foreach ($list as $element)
 			if (preg_match("/.*\.php/", $element))
-				array_push($result, $this->importData($element));
-		}
-		return $result;
+				DB::table('certifications')->insertGetId($this->importData($element));
 	}
 
 	private function importData($file)
@@ -63,5 +55,4 @@ class CertificationTableSeeder extends Seeder {
 */
 		return $result;
 	}
-
 }
