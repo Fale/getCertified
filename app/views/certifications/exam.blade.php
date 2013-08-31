@@ -8,7 +8,11 @@
 	<h2>Certification list</h2>
 		<ul>
 		@foreach ($certifications as $c)
-			<li><a href="/{{$slug}}/c/{{$c->slug}}">{{$c->name}}</a></li>
+			@if (!$c->pivot->policy)
+				<li><a href="/{{$slug}}/c/{{$c->slug}}">{{$c->name}}</a></li>
+			@else
+				<li><a href="/{{$slug}}/c/{{$c->slug}}">{{$c->name}}</a> (optional)</li>
+			@endif
 		@endforeach
 		</ul>
 	@endif

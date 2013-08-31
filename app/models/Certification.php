@@ -9,7 +9,7 @@ class Certification extends Eloquent {
 
     public function exams()
     {
-        return $this->belongsToMany('Exam');
+        return $this->belongsToMany('Exam')->withPivot('group_id', 'policy');
     }
 
     public function requiredCertifications()

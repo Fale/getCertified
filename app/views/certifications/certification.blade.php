@@ -7,22 +7,22 @@
 	@if (count($exams) > 0)
 	<h2>Exam list</h2>
 		<ul>
-	@endif
-	@foreach ($exams as $e)
-		<li><a href="/{{$slug}}/e/{{$e->slug}}">{{$e->name}}</a></li>
-	@endforeach
-	@if (count($exams) > 0)
+		@foreach ($exams as $e)
+			@if (!$e->pivot->policy)
+				<li><a href="/{{$slug}}/e/{{$e->slug}}">{{$e->name}}</a></li>
+			@else
+				<li><a href="/{{$slug}}/e/{{$e->slug}}">{{$e->name}}</a> (optional)</li>
+			@endif
+		@endforeach
 		</ul>
 	@endif
 
 	@if (count($languages) > 0)
 	<h2>Language list</h2>
 		<ul>
-	@endif
-	@foreach ($languages as $l)
-		<li>{{$l->name}}</li>
-	@endforeach
-	@if (count($languages) > 0)
+		@foreach ($languages as $l)
+			<li>{{$l->name}}</li>
+		@endforeach
 		</ul>
 	@endif
 
