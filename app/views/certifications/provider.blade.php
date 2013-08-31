@@ -5,7 +5,7 @@
 	{{$description}}
 	
 	@if (count($certifications) > 0)
-	<h2>Certification list</h2>
+	<h2>Certifications</h2>
 		<ul>
 	@endif
 	@foreach ($certifications as $c)
@@ -16,7 +16,7 @@
 	@endif
 
 	@if (count($exams) > 0)
-	<h2>Exam list</h2>
+	<h2>Exams</h2>
 		<ul>
 	@endif
 	@foreach ($exams as $e)
