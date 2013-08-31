@@ -23,7 +23,7 @@ class CertController extends BaseController {
 
 	public function showCertifications()
 	{
-		$c = Certification::get()->sortBy(function($e){return $e->name;});
+		$c = Certification::get()->sortBy(function($e){return $e->fullname;});
 		$this->layout->content = View::make('certifications', array('certifications' => $c));
 	}
 
@@ -42,7 +42,7 @@ class CertController extends BaseController {
 
 	public function showExams()
 	{
-		$e = Exam::get()->sortBy(function($e){return $e->name;});
+		$e = Exam::get()->sortBy(function($e){return $e->fullname;});
 		$this->layout->content = View::make('exams', array('exams' => $e));
 	}
 
