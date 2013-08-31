@@ -26,15 +26,9 @@
 		</ul>
 	@endif
 
-	@if (count($requiredCertifications) > 0)
-	<h2>Required certifications</h2>
-		<ul>
-	@endif
-	@foreach ($requiredCertifications as $r)
-		<li>{{$r->name}}</li>
-	@endforeach
-	@if (count($requiredCertifications) > 0)
-		</ul>
+	@if (strlen($requiredCertifications) > 1)
+		<h2>Required certifications</h2>
+    	{{$requiredCertifications}}
 	@endif
 
 @stop

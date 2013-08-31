@@ -36,7 +36,7 @@ class CertController extends BaseController {
 		$data['slug'] = $p->slug;
 		$data['exams'] = $c->exams;
 		$data['languages'] = $c->languages;
-		$data['requiredCertifications'] = $c->requiredCertifications;
+		$data['requiredCertifications'] = TextController::stringToHtml($this->dependencyToMd($c->id));
 		$this->layout->content = View::make('certifications.certification', $data);
 	}
 
@@ -58,4 +58,18 @@ class CertController extends BaseController {
 		$this->layout->content = View::make('certifications.exam', $data);
 	}
 
+	private function dependencyToMd($certificationId, $i = 0, $urls = 1)
+	{
+		$o = "";
+		$c = Certification::find($certificationId);
+		foreach ($c->requiredCertifications as $rc) {
+			if ($urls)
+				$o .= str_repeat(" ", 4 * $i) . "* [" . $rc->name . "](/" . $rc->provider->slug ."/c/" .  $rc->slug . ")\n";
+			else
+				$o .= str_repeat(" ", 4 * $i) . "* " . $rc->name . "\n";
+			if (count($rc->requiredCertifications))
+				$o .= $this->dependencyToMd($rc->id, $i + 1, $urls);
+		}
+		return $o;
+	}
 }
