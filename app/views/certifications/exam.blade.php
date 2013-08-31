@@ -15,12 +15,21 @@
 
 	@if (!empty($introduction))
 	<h2>Introduction date</h2>
-		This exam have been available since {{$introduction}}.
+		@if (strtotime($introduction) < time())
+			This exam have been available since {{$introduction}}.
+		@else
+			This exam have will be available after the {{$introduction}}.
+		@endif
 	@endif
 
 	@if (!empty($retired))
 	<h2>Riterement date</h2>
-		This exam will be available untill {{$retired}}.
+		@if (strtotime($retired) < time())
+			This exam hve been available untill {{$retired}}.
+		@else
+			This exam will be available untill {{$retired}}.
+		@endif
+		
 	@endif
 
 	@if (count($languages) > 0)
