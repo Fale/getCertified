@@ -27,6 +27,12 @@ class CertificationTableSeeder extends Seeder {
 			$result['name'] = $data['name'];
 		else
 			$result['name'] = '';
+		if (array_key_exists('fullname', $data))
+			$result['fullname'] = $data['fullname'];
+		elseif (array_key_exists('name', $data))
+				$result['fullname'] = $data['name'];
+			else
+				$result['fullname'] = '';
 		if (array_key_exists('slug', $data))
 			$result['slug'] = $data['slug'];
 		else

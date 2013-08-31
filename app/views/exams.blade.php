@@ -6,7 +6,7 @@
 		<ul>
 	@endif
 	@foreach ($exams as $e)
-		<li><a href="/{{$e->provider->slug}}/e/{{$e->slug}}">{{$e->name}}</a></li>
+		<li><a href="/{{$e->provider->slug}}/e/{{$e->slug}}">{{$e->fullname}}</a></li>
 	@endforeach
 	@if (count($exams) > 0)
 		</ul>

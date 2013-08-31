@@ -3,6 +3,7 @@
 $data = array(
 	'slug' => "a",
 	'name' => "A+",
+	'fullname' => "CompTIA A+",
 	'provider' => "comptia",
 	'level' => "",
 	'requirements' => array(),

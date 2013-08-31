@@ -3,6 +3,7 @@
 $data = array(
 	'slug' => "102",
 	'name' => "102",
+	'fullname' => "LPI 102",
 	'provider' => "lpi",
 	'level' => "",
 	'requirements' => array(),

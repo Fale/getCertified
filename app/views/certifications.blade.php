@@ -6,7 +6,7 @@
 		<ul>
 	@endif
 	@foreach ($certifications as $c)
-		<li><a href="/{{$c->provider->slug}}/c/{{$c->slug}}">{{$c->name}}</a></li>
+		<li><a href="/{{$c->provider->slug}}/c/{{$c->slug}}">{{$c->fullname}}</a></li>
 	@endforeach
 	@if (count($certifications) > 0)
 		</ul>

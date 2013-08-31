@@ -3,6 +3,7 @@
 $data = array(
 	'slug' => "linux",
 	'name' => "Linux+",
+	'fullname' => "CompTIA Linux+",
 	'provider' => "comptia",
 	'level' => "",
 	'requirements' => array(),
