@@ -22,8 +22,6 @@ class CreateExamsTable extends Migration {
 		    $table->date('last_version');
 		    $table->date('introduction');
 		    $table->date('retired');
-
-		    $table->foreign('provider_id')->references('id')->on('providers');
 		});
 	}
 

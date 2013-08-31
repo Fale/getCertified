@@ -1,11 +1,10 @@
 <?php
 
-class CertificationRequirementsTableSeeder extends Seeder {
+class RequirementsTableSeeder extends Seeder {
 
 	public function run()
 	{
-		DB::table('certification_certification_requirement')->delete();
-		DB::table('certification_exam')->delete();
+		DB::table('requirements')->delete();
 		DB::table('groups')->delete();
 		$result = array();
 		$list = DatabaseSeeder::scandir(base_path() . "/data/certifications");
@@ -45,11 +44,12 @@ class CertificationRequirementsTableSeeder extends Seeder {
 					         ->pluck('id');
 					$data = array(
 						'certification_id' => $certificationId,
-						'exam_id' => $e,
+						'type' => 'Exam',
+						'requirement_id' => $e,
 						'group_id' => $group,
 						'policy' => $policy
 					);
-					DB::table('certification_exam')->insert($data);
+					DB::table('requirements')->insert($data);
 					break;
 				case 'certification':
 					if(!array_key_exists('provider', $array))
@@ -62,11 +62,12 @@ class CertificationRequirementsTableSeeder extends Seeder {
 					         ->pluck('id');
 					$data = array(
 						'certification_id' => $certificationId,
-						'required_id' => $r,
+						'type' => 'Certification',
+						'requirement_id' => $r,
 						'group_id' => $group,
 						'policy' => $policy
 					);
-					DB::table('certification_certification_requirement')->insert($data);
+					DB::table('requirements')->insert($data);
 					break;
 /**				case 'experience':              # Experience to have db
 					$array['group'] = $group;

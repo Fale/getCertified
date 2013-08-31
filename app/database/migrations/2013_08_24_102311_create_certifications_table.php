@@ -22,8 +22,6 @@ class CreateCertificationsTable extends Migration {
 		    $table->string('level');
 		    $table->date('last_version');
 		    $table->date('validity');
-
-		    $table->foreign('provider_id')->references('id')->on('providers');
 		});
 	}
 

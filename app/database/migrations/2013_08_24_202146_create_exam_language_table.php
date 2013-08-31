@@ -15,9 +15,6 @@ class CreateExamLanguageTable extends Migration {
 		{
 		    $table->integer('exam_id')->unsigned();
 		    $table->integer('language_id')->unsigned();
-
-		    $table->foreign('exam_id')->references('id')->on('exams');
-		    $table->foreign('language_id')->references('id')->on('languages');
 		});
 	}
 
