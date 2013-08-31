@@ -31,4 +31,9 @@
     	{{$requiredCertifications}}
 	@endif
 
+	@if (strlen($requiredByCertifications) > 1)
+		<h2>Certifications requiring this one</h2>
+    	{{$requiredByCertifications}}
+	@endif
+
 @stop
