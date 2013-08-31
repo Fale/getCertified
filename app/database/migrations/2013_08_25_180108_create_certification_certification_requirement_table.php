@@ -15,9 +15,11 @@ class CreateCertificationCertificationRequirementTable extends Migration {
 		{
 		    $table->integer('certification_id')->unsigned();
 		    $table->integer('required_id')->unsigned();
+		    $table->integer('group_id')->unsigned();
 
 		    $table->foreign('certification_id')->references('id')->on('certifications');
 		    $table->foreign('required_id')->references('id')->on('certifications');
+		    $table->foreign('group_id')->references('id')->on('certification_group_requirement');
 		});
 	}
 

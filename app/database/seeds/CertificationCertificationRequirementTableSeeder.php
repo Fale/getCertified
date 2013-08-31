@@ -26,6 +26,7 @@ class CertificationCertificationRequirementTableSeeder extends Seeder {
 		$certId = DB::table('certifications')->where('slug', $data['slug'])->pluck('id');
 		$providerId = DB::table('certifications')->where('slug', $data['slug'])->pluck('provider_id');
 		if (array_key_exists('certification_requirements', $data))
+			/// To be implemented: groups of dependencies
 			$requirements = DB::table('certifications')
 					            ->whereIn('slug', $data['certification_requirements'])
 					            ->where('provider_id', $providerId)
