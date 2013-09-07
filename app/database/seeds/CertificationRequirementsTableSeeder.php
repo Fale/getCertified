@@ -28,7 +28,7 @@ class CertificationRequirementsTableSeeder extends Seeder {
 		return DB::table('groups')->max('id') + 1;
 	}
 
-	private function requirements($array, $provider, $c, $group = NULL, $policy = NULL)
+	private function requirements($array, $provider, $c, $group = NULL, $optional = NULL)
 	{
 		if (array_key_exists('type', $array))
 		{
@@ -47,7 +47,7 @@ class CertificationRequirementsTableSeeder extends Seeder {
 						'certification_id' => $certificationId,
 						'exam_id' => $e,
 						'group_id' => $group,
-						'policy' => $policy
+						'is_optional' => $optional
 					);
 					DB::table('certification_exam')->insert($data);
 					break;
@@ -64,7 +64,7 @@ class CertificationRequirementsTableSeeder extends Seeder {
 						'certification_id' => $certificationId,
 						'required_id' => $r,
 						'group_id' => $group,
-						'policy' => $policy
+						'is_optional' => $optional
 					);
 					DB::table('certification_certification_requirement')->insert($data);
 					break;
@@ -84,11 +84,15 @@ class CertificationRequirementsTableSeeder extends Seeder {
 				$policy = $array['policy'];
 			else
 				$policy = 0;
-			$group = $this->nextGroupId();
-			DB::table('groups')->insert(array('id' => $group, 'policy' => $policy));
+			if (!$optional AND $policy)
+				$optional = 1;
+			$id = DB::table('groups')->insertGetId(array(
+				'policy' => $policy,
+				'parent_id' => $group
+			));
 			foreach ($array as $a)
 				if (is_array($a))
-					$this->requirements($a, $provider, $c, $group, $policy);
+					$this->requirements($a, $provider, $c, $id, $optional);
 		}
 	}
 }

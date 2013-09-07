@@ -15,6 +15,9 @@ class CreateGroupsTable extends Migration {
 		{
 		    $table->increments('id');
 		    $table->integer('policy');
+		    $table->integer('parent_id')->unsigned();
+
+		    $table->foreign('parent_id')->references('id')->on('groups');
 		});
 	}
 

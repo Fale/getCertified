@@ -16,7 +16,7 @@ class CreateCertificationExamTable extends Migration {
 		    $table->integer('certification_id')->unsigned();
 		    $table->integer('exam_id')->unsigned();
 		    $table->integer('group_id')->unsigned();
-		    $table->integer('policy');
+		    $table->boolean('is_optional');
 
 		    $table->foreign('certification_id')->references('id')->on('certifications');
 		    $table->foreign('exam_id')->references('id')->on('exams');
