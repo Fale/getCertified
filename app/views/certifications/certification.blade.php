@@ -8,7 +8,7 @@
 	<h2>Exam list</h2>
 		<ul>
 		@foreach ($exams as $e)
-			@if (!$e->pivot->policy)
+			@if (!$e->optional)
 				<li><a href="/{{$slug}}/e/{{$e->slug}}">{{$e->name}}</a></li>
 			@else
 				<li><a href="/{{$slug}}/e/{{$e->slug}}">{{$e->name}}</a> (optional)</li>

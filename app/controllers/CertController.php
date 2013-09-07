@@ -13,6 +13,17 @@ class CertController extends BaseController {
 	public function showProvider($provider)
 	{
 		$p = Provider::where('slug', $provider)->firstOrFail();
+		$this->provider($p);
+	}
+
+	public function showProviderById($id)
+	{
+		$p = Provider::find($id);
+		$this->provider($p);
+	}
+
+	public function provider($p)
+	{
 		$data['name'] = $p->name;
 		$data['description'] = TextController::stringToHtml($p->description);
 		$data['certifications'] = $p->certifications->sortBy(function($e){return $e->name;});
@@ -31,9 +42,20 @@ class CertController extends BaseController {
 	{
 		$p = Provider::where('slug', $provider)->firstOrFail();
 		$c = Certification::where('slug', $certification)->where('provider_id', $p->id)->firstOrFail();
+		$this->Certification($c);
+	}
+
+	public function showCertificationById($id)
+	{
+		$c = Certification::find($id);
+		$this->Certification($c);
+	}
+
+	public function certification($c)
+	{
 		$data['name'] = $c->name;
 		$data['description'] = TextController::stringToHtml($c->description);
-		$data['slug'] = $p->slug;
+		$data['slug'] = $c->provider->slug;
 		$data['exams'] = $c->exams;
 		$data['languages'] = $c->languages;
 		$data['requiredCertifications'] = TextController::stringToHtml($this->dependencyToMd($c->id));
@@ -51,9 +73,20 @@ class CertController extends BaseController {
 	{
 		$p = Provider::where('slug', $provider)->firstOrFail();
 		$e = Exam::where('slug', $exam)->where('provider_id', $p->id)->firstOrFail();
+		$this->exam($e);
+	}
+
+	public function showExamById($id)
+	{
+		$e = Exam::find($id);
+		$this->exam($e);
+	}
+
+	public function exam($e)
+	{
 		$data['name'] = $e->name;
 		$data['description'] = TextController::stringToHtml($e->description);
-		$data['slug'] = $p->slug;
+		$data['slug'] = $e->provider->slug;
 		$data['certifications'] = $e->certifications->sortBy(function($e){return $e->name;});
 		$data['languages'] = $e->languages;
 		$data['introduction'] = $e->introduction;
