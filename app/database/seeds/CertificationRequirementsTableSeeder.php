@@ -23,11 +23,6 @@ class CertificationRequirementsTableSeeder extends Seeder {
 		$this->requirements($data['requirements'], $data['provider'], $data['slug']);
 	}
 
-	private function nextGroupId()
-	{
-		return DB::table('groups')->max('id') + 1;
-	}
-
 	private function requirements($array, $provider, $c, $group = NULL, $optional = NULL)
 	{
 		if (array_key_exists('type', $array))

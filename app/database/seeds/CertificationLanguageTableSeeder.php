@@ -30,7 +30,10 @@ class CertificationLanguageTableSeeder extends Seeder {
 					     ->whereIn('iso_639-1', $data['languages'])
 						 ->lists('id');
 		else
+		{
 			$langs = array();
+			echo "\033[33m Warning: The certification " . $data['slug'] . " has no langs defined\n";
+		}
 		foreach ($langs as $lang) {
 			array_push($results, array('certification_id' => $certId, 'language_id' => $lang));
 		}
