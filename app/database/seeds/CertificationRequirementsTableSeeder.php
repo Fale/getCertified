@@ -79,6 +79,7 @@ class CertificationRequirementsTableSeeder extends Seeder {
 		}
 		else
 		{
+			$certificationId = DB::table('certifications')->where('slug', $c)->pluck('id');
 			# Array
 			if (array_key_exists('policy', $array))
 				$policy = $array['policy'];
@@ -87,6 +88,7 @@ class CertificationRequirementsTableSeeder extends Seeder {
 			if (!$optional AND $policy)
 				$optional = 1;
 			$id = DB::table('groups')->insertGetId(array(
+				'certification_id' => $certificationId,
 				'policy' => $policy,
 				'parent_id' => $group
 			));

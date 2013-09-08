@@ -60,6 +60,14 @@ class CertController extends BaseController {
 		$data['languages'] = $c->languages;
 		$data['requiredCertifications'] = TextController::stringToHtml($this->dependencyToMd($c->id));
 		$data['requiredByCertifications'] = TextController::stringToHtml($this->requiredByToMd($c->id));
+
+		//		$o = "";
+		//$c = Certification::find($certificationId);
+	    
+	    //$d = $this->buildtree($c->requiredCertifications);
+
+		$data['requirements'] = $this->requirementsToHtml($c->id);
+
 		$this->layout->content = View::make('certifications.certification', $data);
 	}
 
@@ -122,5 +130,106 @@ class CertController extends BaseController {
 				$o .= $this->requiredByToMd($rc->id, $i + 1, $urls);
 		}
 		return $o;
+	}
+
+
+
+
+	private function requirementsToHtml($id)
+	{
+		$out = $this->reqHtml($this->requirementsToArray($id));
+		return substr($out, 8, -12); //Work around to remove the outer <ul><li>
+	}
+
+	private function requirementsToArray($id)
+	{
+		$groups = Group::where('certification_id', $id)->get();
+		return $this->reqArray($groups);
+	}
+
+	private function reqArray($src_arr, $parent_id = 0, $tree = array())
+	{
+	    foreach($src_arr as $idx => $row)
+	    {
+	        if($row['parent_id'] == $parent_id)
+	        {
+	        	$array = array();
+	            $certs = DB::table('certification_certification_requirement')->where('group_id', $row->id)->get();
+	            $exams = DB::table('certification_exam')->where('group_id', $row->id)->get();
+	            $array['policy'] = $row->policy;
+	            foreach($certs as $cert)
+	            {
+	            	$element = array();
+	                $element['type'] = 'certification';
+	                $element['id'] = $cert->required_id;
+	                $array[] = $element;
+	            }
+	            foreach($exams as $exam)
+	            {
+	            	$element = array();
+	                $element['type'] = 'exam';
+	                $element['id'] = $exam->exam_id;
+	                $array[] = $element;
+	            }
+	            unset($src_arr[$idx]);
+	            $tree[] = array_merge($array, $this->reqArray($src_arr, $row['id']));
+	        }
+	    }
+	    return $tree;
+	}
+
+	private function reqHtml($array, $indent = NULL) {
+	    $out = "<ul>";
+	    foreach($array as $elem){
+	    	if (is_array($elem))
+	        	if (array_key_exists('0', $elem))
+	        	{
+	       			$out.= "<li>";
+	        		if ($indent)
+	        			if ($elem['policy'] == 0)
+	        				$out.= "All the following:";
+	        			else
+	        				$out.= "At least " . $elem['policy'] . " of the following:";
+	        		$out.= $this->reqHtml($elem, $indent + 1);
+        			$out.= "</li>\n";
+	        	}
+		        else
+		        {
+		        	//print_r($e);
+		        	$out.= "<li>";
+		        	switch ($elem['type']) {
+		        		case 'certification':
+		        			$e = Certification::find($elem['id']);
+			        		$out.= "Have the <a href=/" . $e->provider->slug . "/c/" . $e->slug . ">" . $e->name . "</a> certification";
+		        			break;
+		        		case 'exam':
+		        			$e = Exam::find($elem['id']);
+		        			$out.= "Pass the <a href=/" . $e->provider->slug . "/e/" . $e->slug . ">" . $e->name . "</a> exam";
+		        			break;
+		        		case 'experience':
+		        			# code...
+		        			break;    		
+		        		default:
+		        			App::abort(500, "Something went very wrong");
+		        			break;
+		        	}
+		        	$out.= "</li>\n";
+		        }
+	        	
+	    }
+	    $out.= "</ul>\n";
+	    return $out; 
+	}
+
+	private function array2ul($array) {
+	    $out = "<ul>";
+	    foreach($array as $key => $elem){
+	        if(!is_array($elem)){
+	                $out.= "<li><span>$key:[$elem]</span></li>";
+	        }
+	        else $out.= "<li><span>$key</span>" . $this->array2ul($elem) . "</li>";
+	    }
+	    $out.= "</ul>";
+	    return $out; 
 	}
 }

@@ -4,18 +4,9 @@
 	<h1>{{$name}}</h1>
 	{{$description}}
 
-	@if (count($exams) > 0)
-	<h2>Exam list</h2>
-		<ul>
-		@foreach ($exams as $e)
-			@if (!$e->optional)
-				<li><a href="/{{$slug}}/e/{{$e->slug}}">{{$e->name}}</a></li>
-			@else
-				<li><a href="/{{$slug}}/e/{{$e->slug}}">{{$e->name}}</a> (optional)</li>
-			@endif
-		@endforeach
-		</ul>
-	@endif
+	<h2>Requirements</h2>
+	To reach this certification you need to:
+	{{$requirements}}
 
 	@if (count($languages) > 0)
 	<h2>Language list</h2>

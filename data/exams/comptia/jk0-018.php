@@ -1,8 +1,8 @@
 <?php
 
 $data = array(
-	'slug' => "JKO-018",
-	'name' => "JKO-018",
+	'slug' => "JK0-018",
+	'name' => "JK0-018",
 	'fullname' => "CompTIA JKO-018",
 	'provider' => "comptia",
 	'level' => '2',

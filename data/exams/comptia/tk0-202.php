@@ -1,7 +1,7 @@
 <?php
 
 $data = array(
-	'slug' => "TKO-202",
+	'slug' => "TK0-202",
 	'name' => "CTT+ Classroom Trainer TK0-202 ",
 	'fullname' => "CompTIA CTT+ Classroom Trainer: TK0-202",
 	'provider' => "comptia",
